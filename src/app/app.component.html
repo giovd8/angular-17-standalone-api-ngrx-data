@@ -1,1 +1,13 @@
-<button class="bg-red-400">test</button>
+<div
+  class="h-screen w-screen bg-neutral overflow-hidden min-h-[650px] min-w-[1200px] p-10"
+>
+    <div class="w-full h-full flex flex-col">
+      <div class="w-full h-full ne-main-container overflow-hidden">
+        <router-outlet></router-outlet>
+      </div>
+
+        <div class="flex justify-center ne-card !bg-transparent !border-0 !pb-0 !shadow-none hover:!scale-110">
+          <app-menu></app-menu>
+        </div>
+    </div>
+</div>
