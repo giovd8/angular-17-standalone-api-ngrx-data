@@ -1,1 +1,28 @@
-<p>users works!</p>
+<div class="flex flex-col gap-4">
+  <div class="text-right">
+    <button (click)="addUser()">Add user</button>
+  </div>
+  <div class="flex flex-col gap-4 h-[70vh] overflow-y-auto px-2 pb-4">
+
+    @for (user of users$ | async; track $index) {
+
+      <div class="ne-card flex justify-between items-center">
+        {{ user.name }}
+        <div class="flex gap-4">
+          <button (click)="getById(user.id)">Details</button>
+          <button (click)=" editOne(user)">Edit</button>
+          <button (click)="deleteOne(user.id)">Delete</button>
+        </div>
+        <!--      {{ user.email }}-->
+        <!--      {{ user.phone }}-->
+        <!--      {{ user.website }}-->
+        <!--      {{ user.company.name }}-->
+        <!--      {{ user.address.street }}-->
+        <!--      {{ user.address.suite }}-->
+        <!--      {{ user.address.city }}-->
+        <!--      {{ user.address.zipcode }}-->
+      </div>
+    }
+  </div>
+  <button (click)="loadMore()">Load more</button>
+</div>

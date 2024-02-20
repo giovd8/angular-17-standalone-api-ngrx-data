@@ -1,13 +1,13 @@
-<div class="flex justify-between items-center mt-4 ne-card !px-10 hover:!scale-100">
-  <div class="flex justify-center gap-20 items-center ">
+<div class="flex justify-between items-center mb-4 ne-card !bg-white !px-10 hover:!scale-100 !border-0">
+  <div class="flex justify-center gap-10 items-center ">
     @for (option of options(); let i = $index; track option.selected; ) {
       <button
         [routerLink]="option.path" (click)="setActiveRoute(i)"
         [ngClass]="option.selected ? 'text-primary' : 'text-gray-400'"
-        class="hover:text-secondary hover:scale-110 duration-300 flex flex-col items-center !bg-transparent !border-0"
+        class="hover:text-secondary hover:scale-110 duration-300 flex flex-col items-center !bg-transparent !border-0 shadow-none"
       >
 
-          <i class="bi {{option.icon}} text-2xl"></i>
+        <i class="bi {{option.icon}} text-2xl"></i>
       </button>
     }
   </div>

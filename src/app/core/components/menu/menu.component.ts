@@ -22,10 +22,8 @@ export class MenuComponent implements AfterViewInit {
 
   options = signal<MenuOption[]>([
     {label: 'Home', path: '/home', icon: 'bi-house', selected: true},
-    {label: 'Dipendenti', path: '/users', icon: 'bi-people', selected: false},
-    {label: 'Aziende', path: '/places', icon: 'bi-building', selected: false},
-    {label: 'Assense', path: '/absences', icon: 'bi-person-slash', selected: false},
-    {label: 'Resoconto', path: '/reports', icon: 'bi-clipboard-data', selected: false},
+    {label: 'Users', path: '/users', icon: 'bi-people', selected: false},
+    {label: 'Places', path: '', icon: 'bi-geo-alt', selected: false},
   ]);
 
 

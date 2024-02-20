@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {DefaultDataService, HttpUrlGenerator} from "@ngrx/data";
 import {User} from "../../../core/models/user";
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
+import {Update} from "@ngrx/entity";
+import {HttpOptions} from "@ngrx/data/src/dataservices/interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +23,35 @@ export class UsersService extends DefaultDataService<User> {
     // Nel caso in cui l'oggetto contenga direttamente l'array della risposta non è neccessario ovveraidare la chiamate
     return this.http
       .get<User[]>('https://jsonplaceholder.typicode.com/users').pipe(
+        map((res: User[]) => ({data: res})),
+        map((res: { data: User[] }) => res.data)
+      )
+  }
+
+  override update(update: Update<User>, options?: HttpOptions): Observable<User> {
+    return this.http
+      .put<User>(`https://jsonplaceholder.typicode.com/users/${update.id}`, update.changes)
+  }
+
+  override add(entity: User, options?: HttpOptions): Observable<User> {
+    return this.http
+      .post<User>(`https://jsonplaceholder.typicode.com/users`, entity)
+  }
+
+  override delete = (key: number | string, options?: HttpOptions): Observable<string | number> => this.http
+    .delete<string | number>(`https://jsonplaceholder.typicode.com/users/${key}`);
+
+  override getById(id: any): Observable<User> {
+    return this.http
+      .get<User>(`https://jsonplaceholder.typicode.com/users/${id}`)
+  }
+
+  override getWithQuery(queryParams: any, options?: HttpOptions): Observable<User[]> {
+    console.log('queryParams', queryParams);
+    return this.http
+      .get<User[]>('https://jsonplaceholder.typicode.com/users', {
+        params: queryParams
+      }).pipe(
         map((res: User[]) => ({data: res})),
         map((res: { data: User[] }) => res.data)
       )

@@ -13,9 +13,6 @@ export const routes: Routes = [
     path: 'users',
     loadComponent: () =>
       import('./pages/users/users.component').then((m) => m.UsersComponent),
-    // resolve: {
-    //   User: usersResolver
-    // }
     resolve: {data: usersResolver}
   },
 ];
