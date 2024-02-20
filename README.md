@@ -1,27 +1,78 @@
-# Angular17NgrxData
+# Angular 17 Standalone Application with NgRx Data
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
-## Development server
+This repository contains a standalone Angular 17.2.0 application that serves as a simple example of integrating Angular with NgRx Data.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Setup
 
-## Code scaffolding
+To run this application locally, follow these steps:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Clone the Repository:**
+   ```
+   git clone https://github.com/giovd8/angular-17-standalone-api-ngrx-data.git
+   ```
 
-## Build
+2. **Navigate to the Project Directory:**
+   ```
+   cd your-project-directory
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. **Install Dependencies:**
+   ```
+   npm install
+   ```
 
-## Running unit tests
+4. **Run the Application:**
+   ```
+   npm start
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+5. **View in Browser:**
+   Open your browser and navigate to `http://localhost:4200/`.
 
-## Running end-to-end tests
+## Description
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This Angular application demonstrates the usage of NgRx Data, which is a library for simplifying the process of handling data in Angular applications using the NgRx store.
 
-## Further help
+## Features
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Integration of NgRx Data with Angular 17.2.0
+- Basic CRUD operations
+- Simple UI components
+
+## Directory Structure
+
+```
+your-project-directory/
+│
+├── src/                          # Source files
+│   ├── app/                      # Angular application files
+│   ├── assets/                   # Static assets
+│   └── ...
+│
+├── angular.json                  # Angular configuration file
+├── package.json                  # npm package configuration
+├── README.md                     # This README file
+└── ...
+```
+
+## Usage
+
+This application serves as a starting point for understanding how to integrate NgRx Data into Angular 17 projects. Explore the codebase to learn more about its implementation.
+
+## Contributing
+
+Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or create a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Angular](https://angular.io/)
+- [Angular CLI](https://angular.io/cli)
+- [NgRx Data](https://ngrx.io/guide/data)
+
+---
