@@ -7,14 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss",
-          "standalone": true
-        },
-        "@schematics/angular:directive": {
-          "standalone": true
-        },
-        "@schematics/angular:pipe": {
-          "standalone": true
+          "style": "scss"
         }
       },
       "root": "",
@@ -22,11 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/angular-17-ngrx-data",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -39,7 +32,12 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -58,12 +56,9 @@
               "outputHashing": "all"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -72,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-17-ngrx-data:build:production"
+              "buildTarget": "angular-17-ngrx-data:build:production"
             },
             "development": {
-              "browserTarget": "angular-17-ngrx-data:build:development"
+              "buildTarget": "angular-17-ngrx-data:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-17-ngrx-data:build"
+            "buildTarget": "angular-17-ngrx-data:build"
           }
         },
         "test": {
